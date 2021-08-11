@@ -21,7 +21,7 @@ export interface StateProps {
         saveState: MainState
     },
     operationsReducers: {
-        opetationsState: OperationsState,
+        operationsState: OperationsState,
         deleteState: MainState,
         saveState: MainState
     },

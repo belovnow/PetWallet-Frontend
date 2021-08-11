@@ -10,7 +10,7 @@ export const rootReducer = combineReducers({
         deleteState: deleteWalletReducer
     }),
     operationsReducers: combineReducers({
-        opetationsState: getOperationsReducer,
+        operationsState: getOperationsReducer,
         saveState: saveOperationReducer,
         deleteState: deleteOperationReducer
     }),
