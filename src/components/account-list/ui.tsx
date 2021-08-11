@@ -1,17 +1,20 @@
 import {
+  Box,
   CircularProgress,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Button,
+  IconButton,
+  List,
+  ListSubheader,
 } from "@material-ui/core";
 import { useEffect } from "react";
-import { IAccount} from "../../types/domain";
+import { IAccount } from "../../types/domain";
 import Paper from "@material-ui/core/Paper";
 import { AccountsState } from "../../reducers/accounts-reducer";
+import AccountsListItem from "../account-list-item/ui";
+import { useStyles } from "./style";
+import { useState } from "react";
+import React from "react";
+import AddIcon from "@material-ui/icons/Add";
+import CreateAccountDialog from "../create-account-dialog";
 
 interface Props {
   getAccountsStart: () => void;
@@ -20,49 +23,57 @@ interface Props {
 }
 
 const AccountListUI = (props: Props) => {
-  const { accounts, pending } = props.accountsState;
+  const classes = useStyles();
+  const [opened, setOpened] = useState<boolean>(false);
+  const {
+    accountsState: { accounts, pending },
+    getAccountsStart,
+    deleteAccountStart,
+  } = props;
 
   useEffect(() => {
-    props.getAccountsStart();
-  }, []);
+    getAccountsStart();
+  }, [getAccountsStart]);
+
+  const handleClose = () => {
+    setOpened(false);
+  };
 
   if (pending) {
     return <CircularProgress />;
   }
 
   return (
-    <TableContainer component={Paper}>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Id</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {accounts?.map((account: IAccount) => (
-            <TableRow key={account.id}>
-              <TableCell>{account.id}</TableCell>
-              <TableCell>{account.name}</TableCell>
-              <TableCell>{account.type}</TableCell>
-              <TableCell>{account.amount}</TableCell>
-              <TableCell>
-                <Button
-                  onClick={() => props.deleteAccountStart(account.id)}
-                  variant="outlined"
-                  size="small"
-                >
-                  Удалить
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <React.Fragment>
+      <List
+        component={Paper}
+        subheader={
+          <React.Fragment>
+            <Box className={classes.headerBox}>
+              <ListSubheader>Категории</ListSubheader>
+              <IconButton
+                edge="end"
+                className={classes.icon}
+                onClick={() => {
+                  setOpened(true);
+                }}
+              >
+                <AddIcon />
+              </IconButton>
+            </Box>
+          </React.Fragment>
+        }
+      >
+        {accounts?.map((account: IAccount) => (
+          <AccountsListItem
+            key={account.id}
+            account={account}
+            deleteAccount={deleteAccountStart}
+          />
+        ))}
+      </List>
+      <CreateAccountDialog opened={opened} handleClose={handleClose} />
+    </React.Fragment>
   );
 };
 

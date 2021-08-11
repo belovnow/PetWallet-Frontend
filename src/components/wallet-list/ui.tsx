@@ -1,17 +1,19 @@
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
+  Box,
   CircularProgress,
-  Button,
+  IconButton,
+  List,
+  ListSubheader,
+  Paper,
 } from "@material-ui/core";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { IWallet } from "../../types/domain";
-import Paper from "@material-ui/core/Paper";
 import { WalletsState } from "../../reducers/wallet-reducer";
+import React from "react";
+import AddIcon from "@material-ui/icons/Add";
+import WalletsListItem from "../wallet-list-item/ui";
+import { useStyles } from "./style";
+import CreateWalletDialog from "../create-wallet-dialog";
 
 interface Props {
   getWalletsStart: () => void;
@@ -20,46 +22,57 @@ interface Props {
 }
 
 const WalletsListUI = (props: Props) => {
-  const { wallets, pending } = props.walletsState;
-  
+  const classes = useStyles();
+  const [opened, setOpened] = useState<boolean>(false);
+  const {
+    walletsState: { wallets, pending },
+    getWalletsStart,
+    deleteWalletStart,
+  } = props;
+
   useEffect(() => {
-    props.getWalletsStart();
-  }, []);
+    getWalletsStart();
+  }, [getWalletsStart]);
+
+  const handleClose = () => {
+    setOpened(false);
+  };
 
   if (pending) {
     return <CircularProgress />;
   }
+
   return (
-    <TableContainer component={Paper}>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Id</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {wallets?.map((wallet: IWallet) => (
-            <TableRow key={wallet.id}>
-              <TableCell>{wallet.id}</TableCell>
-              <TableCell>{wallet.name}</TableCell>
-              <TableCell>{wallet.amount}</TableCell>
-              <TableCell>
-                <Button
-                  onClick={() => props.deleteWalletStart(wallet.id)}
-                  variant="outlined"
-                  size="small"
-                >
-                  Удалить
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <React.Fragment>
+      <List
+        component={Paper}
+        subheader={
+          <React.Fragment>
+            <Box className={classes.headerBox}>
+              <ListSubheader>Кошельки</ListSubheader>
+              <IconButton
+                edge="end"
+                className={classes.icon}
+                onClick={() => {
+                  setOpened(true);
+                }}
+              >
+                <AddIcon />
+              </IconButton>
+            </Box>
+          </React.Fragment>
+        }
+      >
+        {wallets?.map((wallet: IWallet) => (
+          <WalletsListItem
+            key={wallet.id}
+            wallet={wallet}
+            deleteWallet={deleteWalletStart}
+          />
+        ))}
+      </List>
+      <CreateWalletDialog opened={opened} handleClose={handleClose} />
+    </React.Fragment>
   );
 };
 

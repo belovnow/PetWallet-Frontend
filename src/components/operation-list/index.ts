@@ -4,8 +4,8 @@ import { getOperationsStart, deleteOperationStart } from "../../actions/operatio
 import OperationListUI from './ui';
 import { StateProps } from '../../types/redux';
 
-const mapStateToProps = (props: StateProps) => {
-  return props.operationsReducers;
+const mapStateToProps = (state: StateProps) => {
+  return state.operationsReducers;
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
