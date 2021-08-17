@@ -31,11 +31,8 @@ interface Props {
 
 const CreateOperationDialogUI = (props: Props) => {
   const classes = useStyles();
-  // const [filteredAccounts, setfilteredAccounts] = useState<IAccount[]>();
   const { control, handleSubmit, watch } = useForm();
-
   const { wallet, handleClose, opened, saveOperationStart, saveState } = props;
-
   const { data: accounts } = useFetch(() => getAccounts());
 
   const onSubmit = (operation: IOperationItem) => {
