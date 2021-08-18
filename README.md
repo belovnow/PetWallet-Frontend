@@ -1,7 +1,7 @@
 # PetWallet Frontend
 Клиентская часть приложения для отслеживание финансов.
 
-![localhost_3000_ (1)](https://user-images.githubusercontent.com/38051895/129099410-daa94d3a-e985-4edc-8a7c-e0bd9340b441.png)
+![localhost_3000_ (2)](https://user-images.githubusercontent.com/38051895/129927490-bce7808e-0dbd-4bff-9dcd-1c1472a92296.png)
 
 ### Используемые библиотеки
 * [Typescript](https://www.typescriptlang.org/)
