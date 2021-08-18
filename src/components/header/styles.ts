@@ -8,6 +8,7 @@ const styles = createStyles({
     },
     logo: {
       textDecoration: "none",
+      fontFamily: 'Montserrat'
     }
 });
 
