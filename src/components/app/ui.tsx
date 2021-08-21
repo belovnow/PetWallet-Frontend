@@ -1,17 +1,8 @@
 import WalletsList from "../wallet-list";
-import {
-  AppBar,
-  Button,
+import {  
   Container,
   CssBaseline,
-  Grid,
-  IconButton,
-  makeStyles,
-  Toolbar,
-  Typography,
 } from "@material-ui/core";
-import OperationList from "../operation-list";
-import AccountList from "../account-list";
 import { Provider } from "react-redux";
 import store from "../../store";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
