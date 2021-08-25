@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const createInstance = (path: string) => {
 
-    const url = "https://localhost:5001/api";
+    const url = "http://localhost:5001/api";
 
     const instance = axios.create({
         baseURL: `${url}/${path}`
