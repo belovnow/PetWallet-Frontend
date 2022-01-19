@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
-import { Button, MenuItem, Select, TextField } from "@material-ui/core";
-import FormControl from "@material-ui/core/FormControl";
+import { Button, MenuItem, Select, TextField } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 import { useFetch } from "../../utils/hooks/useFetch";
 import { getAccounts } from "../../api/account";
 import {
@@ -8,7 +8,7 @@ import {
   IOperationItem,
   IWallet,  
 } from "../../types/domain";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import Autocomplete from '@mui/material/Autocomplete';
 import { getWallets } from "../../api/wallets";
 import { OperationType } from "./types";
 import { MainState } from "../../types/redux";

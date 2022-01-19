@@ -4,16 +4,16 @@ import {
   IconButton,
   List,
   ListSubheader,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useEffect } from "react";
 import { IAccount } from "../../types/domain";
-import Paper from "@material-ui/core/Paper";
+import Paper from "@mui/material/Paper";
 import { AccountsState } from "../../reducers/accounts-reducer";
 import AccountsListItem from "../account-list-item/ui";
 import { useStyles } from "./style";
 import { useState } from "react";
 import React from "react";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@mui/icons-material/Add";
 import CreateAccountDialog from "../create-account-dialog";
 
 interface Props {
@@ -57,7 +57,7 @@ const AccountListUI = (props: Props) => {
                 onClick={() => {
                   setOpened(true);
                 }}
-              >
+                size="large">
                 <AddIcon />
               </IconButton>
             </Box>

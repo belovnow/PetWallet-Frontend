@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import WalletsList from "./../components/wallet-list";
 import AccountList from "./../components/account-list";
 import OperationList from "./../components/operation-list";

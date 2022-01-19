@@ -3,7 +3,7 @@ import {
   TextField,
   FormControl,
   CssBaseline,  
-} from "@material-ui/core";
+} from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import { IWalletItem } from "../../types/domain";
 import { MainState } from "../../types/redux";

@@ -5,13 +5,13 @@ import {
   ListItemAvatar,
   ListItemSecondaryAction,
   ListItemText,
-} from "@material-ui/core";
+} from "@mui/material";
 import { IAccount } from "../../types/domain";
 import React from "react";
 import clsx from "clsx";
 import { AccountType } from "../account-add-form/types";
-import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { useStyles } from "./styles";
 
 interface Props {
@@ -39,7 +39,7 @@ const AccountsListItem = (props: Props) => {
       </ListItemAvatar>
       <ListItemText primary={name} secondary={amount + " ₽"} />
       <ListItemSecondaryAction onClick={() => deleteAccountStart(id)}>
-        <IconButton edge="end">
+        <IconButton edge="end" size="large">
           <DeleteOutlineIcon />
         </IconButton>
       </ListItemSecondaryAction>

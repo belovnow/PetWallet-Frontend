@@ -8,7 +8,7 @@ import {
   TextField,
   MenuItem,
   Select,
-} from "@material-ui/core";
+} from "@mui/material";
 import { IAccountItem } from "../../types/domain";
 import { useForm, Controller } from "react-hook-form";
 import { MainState } from "../../types/redux";

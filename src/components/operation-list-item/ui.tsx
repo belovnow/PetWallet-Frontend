@@ -6,11 +6,11 @@ import {
   ListItemAvatar,
   ListItemSecondaryAction,
   ListItemText,
-} from "@material-ui/core";
+} from "@mui/material";
 import { IOperation } from "../../types/domain";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-import AddCircleSharpIcon from "@material-ui/icons/AddCircleSharp";
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { OperationType } from "../operation-add-form/types";
 import clsx from "clsx";
 import { useStyles } from "./styles";
@@ -81,7 +81,7 @@ const OperationListItem = (props: Props) => {
         <ListItemText primary={walletId} secondary="Кошелёк" />
         <ListItemText primary={accountId} secondary="Счёт" />
         <ListItemSecondaryAction onClick={() => deleteOperation(id)}>
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" size="large">
             <DeleteOutlineIcon />
           </IconButton>
         </ListItemSecondaryAction>

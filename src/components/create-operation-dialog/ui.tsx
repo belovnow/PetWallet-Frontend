@@ -9,9 +9,9 @@ import {
   Select,
   TextField,
   InputAdornment,
-} from "@material-ui/core";
+} from "@mui/material";
 import { IAccount, IOperationItem, IWallet } from "../../types/domain";
-import { Autocomplete } from "@material-ui/lab";
+import { Autocomplete } from '@mui/material';
 import { useForm, Controller } from "react-hook-form";
 import { OperationType } from "../operation-add-form/types";
 import { getAccounts } from "../../api/account";
