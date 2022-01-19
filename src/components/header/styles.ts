@@ -1,6 +1,9 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 
 const styles = createStyles({
+    main: {
+      marginBottom: "20px"
+    },
     header: {
       backgroundColor: "white",
       display: "flex",
