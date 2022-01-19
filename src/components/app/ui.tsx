@@ -14,23 +14,30 @@ import MainPage from "../../pages/main";
 import InfoPage from "../../pages/info";
 import Header from "../header/ui";
 
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
+
 const App = () => {  
-  const theme = createMuiTheme();
+  const theme = createTheme();
 
   return (
     <Provider store={store}>
       <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline>
-         <Header />
-          <Container>
-            <Switch>
-              <Route exact path="/" component={MainPage} />
-              <Route path="/info" component={InfoPage} />
-            </Switch>
-          </Container>
-        </CssBaseline>
-        </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <CssBaseline>
+           <Header />
+            <Container>
+              <Switch>
+                <Route exact path="/" component={MainPage} />
+                <Route path="/info" component={InfoPage} />
+              </Switch>
+            </Container>
+          </CssBaseline>
+          </ThemeProvider>
+      </StyledEngineProvider>
       </BrowserRouter>
     </Provider>
   );
