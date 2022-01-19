@@ -1,11 +1,6 @@
-import {
-  Button,
-  ButtonGroup,
-  makeStyles,
-  Paper,
-  Typography,
-} from "@material-ui/core";
-import GitHubIcon from "@material-ui/icons/GitHub";
+import { Button, ButtonGroup, Paper, Typography } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const useStyle = makeStyles({
   a: {

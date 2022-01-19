@@ -4,9 +4,9 @@ import {
   Divider,
   List,
   ListSubheader,
-} from "@material-ui/core";
+} from "@mui/material";
 import { IOperation } from "../../types/domain";
-import Paper from "@material-ui/core/Paper";
+import Paper from "@mui/material/Paper";
 import { OperationsState } from "../../reducers/operations-reducer";
 import OperationListItem from "../operation-list-item/ui";
 

@@ -1,5 +1,6 @@
-import { createStyles, makeStyles } from "@material-ui/core";
-import { green, grey, red } from "@material-ui/core/colors";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
+import { green, grey, red } from "@mui/material/colors";
 
 const styles = createStyles({
     income: {

@@ -6,7 +6,7 @@ import {
   DialogTitle,
   FormControl,
   TextField,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
   IWalletItem,
 } from "../../types/domain";

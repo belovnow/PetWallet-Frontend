@@ -1,10 +1,12 @@
 import WalletsList from "../wallet-list";
-import {  
+import {
   Container,
-  createMuiTheme,
+  createTheme,
   CssBaseline,
   ThemeProvider,
-} from "@material-ui/core";
+  Theme,
+  StyledEngineProvider,
+} from "@mui/material";
 import { Provider } from "react-redux";
 import store from "../../store";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";

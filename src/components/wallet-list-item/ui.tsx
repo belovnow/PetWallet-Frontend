@@ -5,13 +5,13 @@ import {
   ListItemAvatar,
   ListItemSecondaryAction,
   ListItemText,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useState } from "react";
 import { IWallet } from "../../types/domain";
 import React from "react";
-import PaymentIcon from "@material-ui/icons/Payment";
+import PaymentIcon from "@mui/icons-material/Payment";
 import CreateOperationDialog from "../create-operation-dialog";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 interface Props {
   wallet: IWallet;
@@ -37,7 +37,7 @@ const WalletsListItem = (props: Props) => {
         </ListItemAvatar>
         <ListItemText primary={name} secondary={amount + " ₽"} />
         <ListItemSecondaryAction onClick={() => deleteWalletStart(id)}>
-          <IconButton edge="end">
+          <IconButton edge="end" size="large">
             <DeleteOutlineIcon />
           </IconButton>
         </ListItemSecondaryAction>

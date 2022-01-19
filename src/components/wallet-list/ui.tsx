@@ -5,12 +5,12 @@ import {
   List,
   ListSubheader,
   Paper,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import { IWallet } from "../../types/domain";
 import { WalletsState } from "../../reducers/wallet-reducer";
 import React from "react";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@mui/icons-material/Add";
 import WalletsListItem from "../wallet-list-item/ui";
 import { useStyles } from "./style";
 import CreateWalletDialog from "../create-wallet-dialog";
@@ -56,7 +56,7 @@ const WalletsListUI = (props: Props) => {
                 onClick={() => {
                   setOpened(true);
                 }}
-              >
+                size="large">
                 <AddIcon />
               </IconButton>
             </Box>

@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
-import { Button, MenuItem, Select, TextField } from "@material-ui/core";
-import FormControl from "@material-ui/core/FormControl";
+import { Button, MenuItem, Select, TextField } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 import { IAccountItem } from "../../types/domain";
 import { AccountType } from "./types";
 import { MainState } from "../../types/redux";
